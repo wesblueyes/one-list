@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import List from './List'
 
 class App extends Component {
   render () {
@@ -8,23 +9,7 @@ class App extends Component {
           <h1>One List</h1>
         </header>
         <main>
-          <ul className='one-list'>
-            <li>
-              <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</span>
-            </li>
-            <li className='completed'>
-              <span>Aliquam tincidunt mauris eu risus.</span>
-            </li>
-            <li>
-              <span>Vestibulum auctor dapibus neque.</span>
-            </li>
-            <li>
-              <span>Nunc dignissim risus id metus.</span>
-            </li>
-            <li>
-              <span>Cras ornare tristique elit.</span>
-            </li>
-          </ul>
+          <List />
           <form>
             <input type='text' />
           </form>
