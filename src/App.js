@@ -3,6 +3,11 @@ import List from './List'
 import Input from './Input'
 
 class App extends Component {
+
+  addToList = (newListText) => {
+    console.log(newListText)
+  }
+
   render () {
     return (
       <div className='App'>
@@ -11,7 +16,7 @@ class App extends Component {
         </header>
         <main>
           <List />
-          <Input />
+          <Input onAddToList={this.addToList}/>
         </main>
         <footer>
           &copy; 2016 Pickles of Awesome.
