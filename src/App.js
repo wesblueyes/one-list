@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import List from './List'
+import Input from './Input'
 
 class App extends Component {
   render () {
@@ -10,9 +11,7 @@ class App extends Component {
         </header>
         <main>
           <List />
-          <form>
-            <input type='text' />
-          </form>
+          <Input />
         </main>
         <footer>
           &copy; 2016 Pickles of Awesome.

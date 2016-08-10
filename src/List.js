@@ -5,11 +5,11 @@ class List extends Component {
 
   render () {
     return <ul className='one-list'>
-      <Item textContent='happy' complete={false} />
-      <Item textContent='go' complete={false} />
-      <Item textContent='lucky' complete={false} />
-      <Item textContent='sad' complete={false} />
-      <Item textContent='Pickles' complete={false} />
+      <Item text='happy' complete={false} />
+      <Item text='go' complete={false} />
+      <Item text='lucky' complete={false} />
+      <Item text='sad' complete={false} />
+      <Item text='Pickles' complete={false} />
     </ul>
   }
 }
