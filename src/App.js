@@ -27,7 +27,7 @@ class App extends Component {
           <h1>One List</h1>
         </header>
         <main>
-          <List />
+          <List items={this.state.listItems} />
           <Input onAddToList={this.addToList}/>
         </main>
         <footer>
