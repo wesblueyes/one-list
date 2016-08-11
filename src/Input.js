@@ -17,6 +17,7 @@ class Input extends Component {
 
   submitHandler = (event) => {
     this.props.onAddToList(this.state.text)
+    this.setState({ text: '' })
     event.preventDefault()
   }
 

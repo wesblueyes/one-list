@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 
 class Item extends Component {
 
+  clickHandler = () => {
+    console.log(this.props.key)
+  }
+
   render () {
-    return <li>{this.props.text}</li>
+    const cx = this.props.complete ? 'completed' : ''
+    return <li className={cx} onClick={this.clickHandler}>{this.props.text}</li>
   }
 }
 

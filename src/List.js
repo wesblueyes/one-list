@@ -5,7 +5,7 @@ class List extends Component {
 
   render () {
     const items = this.props.items.map((item, index) => {
-      return <Item text={item} key={index} />
+      return <Item text={item.text} complete={item.complete} index={index} key={index} />
     })
     return <ul className='one-list'>
       {items}

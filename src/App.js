@@ -7,14 +7,15 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      listItems: []
+      listItems: [
+      ]
     }
   }
 
-// add the new list text from Input to the state listItems
+  // add the new list text from Input to the state listItems
   addToList = (newListText) => {
     const newListItems = this.state.listItems
-    newListItems.push(newListText)
+    newListItems.push({ text: newListText, complete: false })
     this.setState({
       listItems: newListItems
     })
