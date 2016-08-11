@@ -4,8 +4,20 @@ import Input from './Input'
 
 class App extends Component {
 
+  constructor () {
+    super()
+    this.state = {
+      listItems: []
+    }
+  }
+
+// add the new list text from Input to the state listItems
   addToList = (newListText) => {
-    console.log(newListText)
+    const newListItems = this.state.listItems
+    newListItems.push(newListText)
+    this.setState({
+      listItems: newListItems
+    })
   }
 
   render () {

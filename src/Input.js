@@ -22,7 +22,8 @@ class Input extends Component {
 
   render () {
     return <form onSubmit={this.submitHandler}>
-      <input type='text' value={this.state.text} onChange={this.handleChange} />
+      <input type='text' value={this.state.text}
+       onChange={this.handleChange} />
     </form>
   }
 }
