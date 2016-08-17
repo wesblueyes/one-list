@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Item extends Component {
 
   clickHandler = () => {
-    console.log(this.props.key)
+    this.props.onCompleteItem(this.props.index)
   }
 
   render () {

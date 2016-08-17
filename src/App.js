@@ -21,6 +21,14 @@ class App extends Component {
     })
   }
 
+  completeItem = (index) => {
+    const newListItems = this.state.listItems
+    newListItems[index].complete = true
+    this.setState({
+      listItems: newListItems
+    })
+  }
+
   render () {
     return (
       <div className='App'>
@@ -28,7 +36,9 @@ class App extends Component {
           <h1>One List</h1>
         </header>
         <main>
-          <List items={this.state.listItems} />
+          <List
+            items={this.state.listItems}
+            onCompleteItem={this.completeItem} />
           <Input onAddToList={this.addToList}/>
         </main>
         <footer>
