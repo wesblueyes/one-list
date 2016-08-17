@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import List from './List'
 import Input from './Input'
+import logo from './logo.svg'
+
+const TOKEN = 'illustriousvoyage'
 
 class App extends Component {
 
@@ -15,15 +18,41 @@ class App extends Component {
   // add the new list text from Input to the state listItems
   addToList = (newListText) => {
     const newListItems = this.state.listItems
-    newListItems.push({ text: newListText, complete: false })
-    this.setState({
-      listItems: newListItems
+
+    // REPLACE this:
+    //   newListItems.push({ text: newListText, complete: false })
+    //   this.setState({ listItems: newListItems })
+    //
+    // WITH this:
+    fetch(`https://one-list-api.herokuapp.com/items?access_token=${TOKEN}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        item: {
+          text: newListText
+        }
+      })
+    })
+    .then((response) => { return response.json() })
+    .then((data) => {
+      newListItems.push(data)
+      this.setState({
+        listItems: newListItems
+      })
     })
   }
 
   completeItem = (index) => {
     const newListItems = this.state.listItems
-    newListItems[index].complete = true
+    newListItems[index].complete = !newListItems[index].complete
+    this.setState({
+      listItems: newListItems
+    })
+  }
+
+  removeItem = (index) => {
+    const newListItems = this.state.listItems
+    newListItems.splice(index, 1)
     this.setState({
       listItems: newListItems
     })
@@ -38,11 +67,13 @@ class App extends Component {
         <main>
           <List
             items={this.state.listItems}
-            onCompleteItem={this.completeItem} />
+            completeItem={this.completeItem}
+            removeItem={this.removeItem} />
           <Input onAddToList={this.addToList}/>
         </main>
         <footer>
-          &copy; 2016 Pickles of Awesome.
+          <p><img src={logo} height="42" alt="React"/></p>
+          <p>&copy; 2016 Pickles of Awesome.</p>
         </footer>
       </div>
     )

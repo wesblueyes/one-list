@@ -2,13 +2,29 @@ import React, { Component } from 'react'
 
 class Item extends Component {
 
+  doubleClicking = false
+
   clickHandler = () => {
-    this.props.onCompleteItem(this.props.index)
+    setTimeout(() => {
+      if (!this.doubleClicking) {
+        this.props.completeItem(this.props.index)
+      }
+    }, 200)
+  }
+
+  doubleClickHandler = () => {
+    this.doubleClicking = true
+    this.props.removeItem(this.props.index)
   }
 
   render () {
     const cx = this.props.complete ? 'completed' : ''
-    return <li className={cx} onClick={this.clickHandler}>{this.props.text}</li>
+    return <li
+      className={cx}
+      onClick={this.clickHandler}
+      onDoubleClick={this.doubleClickHandler}>
+      {this.props.text}
+    </li>
   }
 }
 

@@ -8,7 +8,8 @@ class List extends Component {
       return <Item
         text={item.text}
         complete={item.complete}
-        onCompleteItem={this.props.onCompleteItem}
+        completeItem={this.props.completeItem}
+        removeItem={this.props.removeItem}
         index={index}
         key={index} />
     })
